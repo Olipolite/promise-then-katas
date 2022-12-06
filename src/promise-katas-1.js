@@ -33,43 +33,45 @@ Remember, a Promise can only resolve successfully, or reject when it fails to re
 // when we call returnPromise like 'returnPromise()' we expect our function to use the 
 // 'resolve' Promise callback function in order to resolve successfully
 
-const returnPromise = () => { };
+const returnPromise = () => new Promise((resolve) => resolve());
 
 // 2 Create a function that returns a promise which returns 10 if it resolves succesfully
 // Example:
 // returnTen() resolves to the value 10
 
-const returnTen = () => { };
+const returnTen = () => new Promise((resolve) => resolve(10));
 
 // 3 Create a function that returns a promise which returns 'string' if it resolves succesfully
 // Example:
 // returnString() resolves to the value 'string'
 
-const returnString = () => { };
+const returnString = () => new Promise((resolve) => resolve('string'));
 
 // 4 Create a function that returns a promise which returns an object with a key of name and value of 'Bob' if it resolves succesfully
 // Example:
 // returnBob() resolves to the value { name: 'Bob' }
 
-const returnBob = () => { };
+const returnBob = () => new Promise((resolve) => resolve({name: 'Bob'}));
 
 // 5 Create a function that returns a promise which returns an array with 4 strings of 'eggs', 'apples', 'milk' and 'bread' if it resolves succesfully
 // Example:
 // returnList() resolves to the value ['eggs', 'apples', 'milk', 'bread']
 
-const returnList = () => { };
+const returnList = () => new Promise((resolve) => resolve(['eggs', 'apples', 'milk', 'bread']));
 
 // 6 Create a function that returns a promise which returns "An error occurred" if it rejects
 // Example:
 // anError() rejects to "An error occurred"
 
-const anError = () => { };
+const anError = () => {
+    return new Promise((resolve, reject) => reject('An error occurred'))
+};
 
 // 7 Create a function that returns a promise which returns 666 if it rejects
 // Example:
 // theNumberOfTheBeast() rejects to the value 666
 
-const theNumberOfTheBeast = () => { };
+const theNumberOfTheBeast = () => new Promise((resolve, reject) => reject(666));
 
 // 8 Create a function that returns a promise which returns an object with a key of error and value of 500 if it rejects
 // Example:
